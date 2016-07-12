@@ -1,0 +1,44 @@
+.song {
+  border: 2px solid black;
+  margin-bottom: 15px;
+}
+
+div.row div:nth-child(odd) div.song {
+  background-color: #EECDD4;
+}
+
+div.row div:nth-child(even) div.song {
+  background-color: #7CBFC0;
+}
+
+.navbar-nav li {
+}
+
+.add_song_link {
+  text-align: right;
+}
+
+.music-symbol {
+  position: absolute;
+  font-size: 140px;
+  top: -18px;
+  right: 0px;
+  color: white;
+  opacity: 0.4;
+  -ms-transform: rotate(20deg); /* IE 9 */
+  -webkit-transform: rotate(20deg); /* Safari */
+  transform: rotate(20deg);
+}
+
+.upvotes {
+  font-size: 25px;
+  float: right;
+}
+
+.upvoted {
+  color: red;
+}
+
+#login_form {
+  margin: 10px;
+}
