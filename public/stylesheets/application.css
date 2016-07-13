@@ -11,7 +11,8 @@ div.row div:nth-child(even) div.song {
   background-color: #7CBFC0;
 }
 
-.navbar-nav li {
+.song .song_data {
+  padding: 0 10px 0 10px;
 }
 
 .add_song_link {

@@ -6,21 +6,23 @@
   <% @songs.each do |song| %>
     <div class='col-xs-12 col-md-4'>
       <div class='song'>
-      <span class="glyphicon glyphicon-music music-symbol" aria-hidden="true"></span>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= song.url.split('/')[-1] %>" allowfullscreen></iframe>
-      </div>
-      <h3><a href="/music/<%= song.id %>"><%= song.title %></a>
-      <% if logged_in? %>
-        <% if !@upvotes.where(music_id: song.id).empty? %>
-          <p class="upvotes"><a href="/music/downvote/<%= song.id %>"><span class="glyphicon glyphicon-thumbs-up upvoted" aria-hidden="true"></span></a><%= song.votes.count %></p>
-        <% else %>
-          <p class="upvotes"><a href="/music/upvote/<%= song.id %>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a><%= song.votes.count %></p>
-        <% end %>
-      <% else %>
-        <p class="upvotes"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><%= song.votes.count %></p>
-      <% end %></h3>
-      <h5>By: <%= song.author %><small> (posted by: <%= song.user.username %>)</small></h5>
+        <span class="glyphicon glyphicon-music music-symbol" aria-hidden="true"></span>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= song.url.split('/')[-1] %>" allowfullscreen></iframe>
+        </div>
+        <div class="song_data">
+          <h3><a href="/music/<%= song.id %>"><%= song.title %></a>
+          <% if logged_in? %>
+            <% if !@upvotes.where(music_id: song.id).empty? %>
+              <p class="upvotes"><a href="/music/downvote/<%= song.id %>"><span class="glyphicon glyphicon-thumbs-up upvoted" aria-hidden="true"></span></a><%= song.votes.count %></p>
+            <% else %>
+              <p class="upvotes"><a href="/music/upvote/<%= song.id %>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a><%= song.votes.count %></p>
+            <% end %>
+          <% else %>
+            <p class="upvotes"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><%= song.votes.count %></p>
+          <% end %></h3>
+          <h5>By: <%= song.author %><small> (posted by: <%= song.user.username %>)</small></h5>
+        </div>
       </div>
     </div>
   <% end %>
