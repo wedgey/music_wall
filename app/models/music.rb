@@ -1,5 +1,6 @@
 class Music < ActiveRecord::Base
   belongs_to :user
+  has_many :reviews
   has_many :votes
 
   validates :title, presence: true

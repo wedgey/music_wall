@@ -20,4 +20,12 @@ $(document).ready(function() {
     });
   });
 
+  var $review_form_rate = $('#review_form_rate').rateYo({
+    onSet: function(rating, rateInstance) {
+      $('#num_stars').attr('value', rating);
+    }
+  });
+
+  $(".user_review_stars").rating({displayOnly: true, min:0, max:5, step:0.1, size:'xs'});
+
 });

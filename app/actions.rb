@@ -6,6 +6,11 @@ helpers do
   def logged_in?
     !current_user.nil?
   end
+
+  def user_review?(review)
+    review.user == current_user
+  end
+
 end
 
 # Homepage (Root path)
@@ -36,6 +41,28 @@ end
 get '/music/new' do
   @music = Music.new
   erb :'music/new'
+end
+
+get '/music/:id' do
+  @music = Music.find(params[:id])
+  erb :'music/details'
+end
+
+get '/music/:mid/review/delete/:id' do
+  if logged_in?
+    Review.find(params[:id]).destroy if user_review?(Review.find(params[:id]))
+  end
+  redirect '/music/' + params[:mid]
+end
+
+post '/music/review/new' do
+  if logged_in?
+    @review = Review.new(review: params[:review_text], stars: params[:num_stars])
+    @review.music = Music.find(params[:id].to_i)
+    @review.user = current_user
+    @review.save!
+  end
+  redirect '/music/' + params[:id]
 end
 
 get '/music/upvote/:id' do

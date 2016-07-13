@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include BCrypt
   has_many :musics
   has_many :votes
+  has_many :reviews
 
   validates :username, presence: true, uniqueness: true
   validates :password_hash, presence:true, length: {minimum: 6}

@@ -42,3 +42,35 @@ div.row div:nth-child(even) div.song {
 #login_form {
   margin: 10px;
 }
+
+.reviews {
+  margin-top: 10px;
+}
+
+.review {
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.review:nth-child(odd) {
+  background-color: #EECDD4;
+}
+
+.review:nth-child(even) {
+  background-color: #7CBFC0;
+}
+
+.review-remove {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  font-size: 20px;
+}
+
+.user_review_stars_container {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
