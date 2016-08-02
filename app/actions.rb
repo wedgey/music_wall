@@ -19,7 +19,7 @@ get '/' do
 end
 
 get '/music' do
-  Music.connection
+  # Music.connection
   @songs = Music.includes(:votes).references(:votes).group('"musics"."id"').order('COUNT("votes"."id") DESC')
   erb :'music/index'
 end
